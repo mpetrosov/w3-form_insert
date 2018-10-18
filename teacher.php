@@ -18,35 +18,36 @@
     <title>teachers</title>
 </head>
 <body>
-    <div class="col-1">
-        <div class="register-form">
-            <h1>Teacher</h1>
-            <form class="form" action="#" method="POST">
-                <input class="fname" type="text" name="tfname" placeholder="first name">
-                <input class="sname" type="text" name="tsname" placeholder="second name">
-                <input class="email" type="text" name="temail" placeholder="E-mail" >
-                <button class="button-back" type="submit" name="tsubmit">submit</button>
-            </form>
-        </div>
+    <div class="container">
+        <h1>Teacher</h1>
+        <div class="row">
+            <div class="col-1">
+                        
+            </div>
+            <div class="col-1">
+                <form class="form" action="#" method="POST">
+                    <input class="fname" type="text" name="tfname" placeholder="first name"><br>
+                    <input class="sname" type="text" name="tsname" placeholder="second name"><br>
+                    <input class="email" type="text" name="temail" placeholder="E-mail" ><br>
+                    <button class="button-back" type="submit" name="tsubmit">submit</button>
+                </form>
+            </div>
+            <div class="col-1">
+                <h2>Dear teacher!</h2>
+                <?php 
+                    if (isset($_POST['tsubmit']) || !empty( $tfname) || !empty($tsname) ||!empty($temail)) {
+                        $tfname = $_POST['tfname'];
+                        $tsname = $_POST['tsname'];
+                        $temail = $_POST['temail'];
+                        echo "<h2>Hallo! ".$tfname. " ". $tsname. "<br>"." Your email: ". $temail."</h2>";
+                    }else{
+                        echo  '<h3 class="error">You mised first name, last name, or email</h3>';
+                    } 
+                ?> 
+            </div> 
+        </div>        
     </div>
-    
-    <div class="message">
-        <h2>Dear teacher!</h2>
         
-        <?php 
-            $tfname = $_POST['tfname'];
-            $tsname = $_POST['tsname'];
-            $temail = $_POST['temail'];
-
-            if (!isset($_POST['tsubmit']) || empty( $tfname) || empty($tsname) || empty($temail)) {
-                echo  '<h3 class="error">You mised first name, last name, or email</h3>';
-            }else{
-                echo "<h2>Hallo! ".$tfname. " ". $tsname. "<br>"." Your email: ". $temail."</h2>";
-            } 
-        ?> 
-        
-    </div> 
-    
     <a href="projects.php" class="button"> projects</a>
 </body>
 </html>

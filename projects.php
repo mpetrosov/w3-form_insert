@@ -19,30 +19,33 @@
 </head>
 <body>
 
-    <div class="col-1">
-        <div class="register-form">
-            <h1>Projet</h1>
+<div class="container"> 
+    <h1>Project</h1>
+    <div class="row">
+        <div class="col-1">
+            
+        </div>
+        <div class="col-1">
             <form class="form" action="#" method="POST">
-                <input class="name" type="text" name="pname" placeholder="project name">
-                <input class="place" type="text" name="place" placeholder="place">
+                <input class="name" type="text" name="pname" placeholder="project name"><br>
+                <input class="place" type="text" name="place" placeholder="place"><br>
                 <button class="button-back" type="submit" name="psubmit">submit</button>
-            </form>
+            </form> 
+        </div>
+        <div class="col-1">
+            <h2>Dear participant</h2>
+            <?php 
+                if (isset($_POST['psubmit']) || !empty( $pname) || !empty($place)) {
+                $pname = $_POST['pname'];
+                $place = $_POST['place'];
+                echo "<h2>Welocome to our project: ".$pname. "<br>"." in ". $place."</h2>";
+                }else{
+                    echo  '<h3 class="error">You mised first name, last name, or email</h3>';
+                } 
+            ?> 
         </div>
     </div>
-    
-    <div class="message">
-        <h2>Dear participant</h2>
-        <?php 
-            $pname = $_POST['pname'];
-            $place = $_POST['place'];
-
-            if (!isset($_POST['psubmit']) || empty( $pname) || empty($place)) {
-                echo  '<h3 class="error">You mised first name, last name, or email</h3>';
-            }else{
-                echo "<h2>Welocome to our project: ".$pname. "<br>"." in ". $place."</h2>";
-            } 
-        ?> 
-    </div>
+</div>
     <a href="main.php" class="button"> home</a> 
 </body>
 </html>

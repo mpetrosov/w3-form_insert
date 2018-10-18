@@ -18,38 +18,36 @@
     <title>students</title>
 </head>
 <body>
-    <div class="container">
-        <div class="col-1">
-            <div class="register-form">
-                <h1>Student</h1>
+    <div class="container"> 
+        <h1>Student</h1>
+        <div class="row">
+            <div class="col-1">
+                
+            </div>
+            <div class="col-1">
                 <form class="form" action="#" method="POST">
-                    <input class="fname" type="text" name="fname" placeholder="first name">
-                    <input class="sname" type="text" name="sname" placeholder="second name">
+                    <input class="fname" type="text" name="fname" placeholder="first name"><br>
+                    <input class="sname" type="text" name="sname" placeholder="second name"><br>
                     <input class="email" type="text" name="semail" placeholder="E-mail"><br><br>
                     <button class="button-back" type="submit" name="ssubmit">submit</button>
                 </form>
             </div>
-        </div>
-        <br>
-        
-        <div class="message">
-            <h2>Dear student!</h2>
-            <h>Hallo! 
-            <?php 
-            $fname = $_POST['fname'];
-            $sname = $_POST['sname'];
-            $semail = $_POST['semail'];
-
-                if (!isset($_POST['ssubmit']) || empty($fname) || empty($sname) || empty($semail)) {
-                    echo  '<h3 class="error">You mised first name, last name, or email</h3>';
-                }else{
-                    echo "<h2>Hallo! ".$fname. " ". $sname. "<br>"." Your email: ". $semail."</h2>";
-                } 
-            ?> 
             
-
+            <div class="col-1">
+                    <h2>Dear student!</h2>
+                    <h>Hallo! 
+                    <?php 
+                        if (!isset($_POST['ssubmit']) || empty($fname) || empty($sname) || empty($semail)) {
+                            $fname = $_POST['fname'];
+                            $sname = $_POST['sname'];
+                            $semail = $_POST['semail'];
+                            echo "<h2>Hallo! ".$fname. " ". $sname. "<br>"." Your email: ". $semail."</h2>";
+                        }else{
+                            echo  '<h3 class="error">You mised first name, last name, or email</h3>';
+                        } 
+                    ?> 
+            </div>
         </div>
-        
     </div>
     <a href="teacher.php" class="button"> teacher</a>
 </body>
